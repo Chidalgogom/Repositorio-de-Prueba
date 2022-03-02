@@ -1,0 +1,1040 @@
+login as: root
+Authenticating with public key "rsa-key-20211007" from agent
+Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 4.15.0-159-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Tue Mar  1 19:41:09 UTC 2022
+
+  System load:  0.0                Processes:           103
+  Usage of /:   11.9% of 24.06GB   Users logged in:     1
+  Memory usage: 32%                IP address for eth0: 143.198.178.33
+  Swap usage:   0%                 IP address for eth1: 10.116.0.3
+
+12 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+New release '20.04.4 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+*** System restart required ***
+Last login: Tue Mar  1 19:34:30 2022 from 186.10.223.230
+root@OrionTesting:~# service --status-all
+ [ - ]  acpid
+ [ + ]  apparmor
+ [ + ]  apport
+ [ + ]  atd
+ [ - ]  console-setup.sh
+ [ + ]  cron
+ [ - ]  cryptdisks
+ [ - ]  cryptdisks-early
+ [ + ]  dbus
+ [ + ]  ebtables
+ [ + ]  grub-common
+ [ - ]  hwclock.sh
+ [ - ]  irqbalance
+ [ + ]  iscsid
+ [ - ]  keyboard-setup.sh
+ [ + ]  kmod
+ [ - ]  lvm2
+ [ + ]  lvm2-lvmetad
+ [ + ]  lvm2-lvmpolld
+ [ + ]  lxcfs
+ [ - ]  lxd
+ [ - ]  mdadm
+ [ - ]  mdadm-waitidle
+ [ + ]  odoo
+ [ - ]  open-iscsi
+ [ - ]  open-vm-tools
+ [ - ]  plymouth
+ [ - ]  plymouth-log
+ [ + ]  postgresql
+ [ + ]  procps
+ [ - ]  rsync
+ [ + ]  rsyslog
+ [ - ]  screen-cleanup
+ [ + ]  ssh
+ [ - ]  sysstat
+ [ + ]  udev
+ [ + ]  ufw
+ [ + ]  unattended-upgrades
+ [ + ]  uuidd
+ [ - ]  x11-common
+root@OrionTesting:~# service odoo status
+● odoo.service - Odoo Open Source ERP and CRM
+   Loaded: loaded (/lib/systemd/system/odoo.service; enabled; vendor preset: enabled)
+   Active: active (running) since Tue 2022-03-01 13:46:01 UTC; 5h 58min ago
+ Main PID: 21791 (odoo)
+    Tasks: 5 (limit: 1151)
+   CGroup: /system.slice/odoo.service
+           └─21791 /usr/bin/python3 /usr/bin/odoo --config /etc/odoo/odoo.conf --logfile /var/log/odoo/odoo-server.log
+
+Mar 01 13:46:01 OrionTesting systemd[1]: Stopped Odoo Open Source ERP and CRM.
+Mar 01 13:46:01 OrionTesting systemd[1]: Started Odoo Open Source ERP and CRM.
+root@OrionTesting:~# cd odoo
+-bash: cd: odoo: No such file or directory
+root@OrionTesting:~# git clone git@github.com:NicoCoronado/Orion-ERP.git
+Cloning into 'Orion-ERP'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+root@OrionTesting:~# ls
+Orion-ERP
+root@OrionTesting:~# cd Orion-ERP
+root@OrionTesting:~/Orion-ERP# ls ..
+Orion-ERP
+root@OrionTesting:~/Orion-ERP# ls ..
+Orion-ERP
+root@OrionTesting:~/Orion-ERP# cd ..
+root@OrionTesting:~# git clone git@github.com:NicoCoronado/Orion-ERP.git
+fatal: destination path 'Orion-ERP' already exists and is not an empty directory.
+root@OrionTesting:~# cd Orion-ERP
+root@OrionTesting:~/Orion-ERP# ls
+README.md
+root@OrionTesting:~/Orion-ERP# git pull
+remote: Enumerating objects: 12, done.
+remote: Counting objects: 100% (12/12), done.
+remote: Compressing objects: 100% (6/6), done.
+remote: Total 11 (delta 0), reused 11 (delta 0), pack-reused 0
+Unpacking objects: 100% (11/11), done.
+From github.com:NicoCoronado/Orion-ERP
+   f759ea0..7a1bd57  main       -> origin/main
+Updating f759ea0..7a1bd57
+Fast-forward
+ desarrollos-orion/cuidado_plantas/__init__.py          |  1 +
+ desarrollos-orion/cuidado_plantas/__manifest__.py      | 30 ++++++++++++++++++++++++++++++
+ desarrollos-orion/cuidado_plantas/models/__init__.py   |  1 +
+ desarrollos-orion/cuidado_plantas/models/model.py      |  1 +
+ desarrollos-orion/cuidado_plantas/models/model.py.save |  5 +++++
+ desarrollos-orion/cuidado_plantas/views/vista.xml      |  1 +
+ 6 files changed, 39 insertions(+)
+ create mode 100644 desarrollos-orion/cuidado_plantas/__init__.py
+ create mode 100644 desarrollos-orion/cuidado_plantas/__manifest__.py
+ create mode 100644 desarrollos-orion/cuidado_plantas/models/__init__.py
+ create mode 100644 desarrollos-orion/cuidado_plantas/models/model.py
+ create mode 100644 desarrollos-orion/cuidado_plantas/models/model.py.save
+ create mode 100644 desarrollos-orion/cuidado_plantas/views/vista.xml
+root@OrionTesting:~/Orion-ERP# mkdir oddons
+root@OrionTesting:~/Orion-ERP# ls
+README.md  desarrollos-orion  oddons
+root@OrionTesting:~/Orion-ERP# git add oddons
+root@OrionTesting:~/Orion-ERP# ls
+README.md  desarrollos-orion  oddons
+root@OrionTesting:~/Orion-ERP# git commit "Fichero nuevo"
+error: pathspec 'Fichero nuevo' did not match any file(s) known to git.
+root@OrionTesting:~/Orion-ERP# git commit
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+root@OrionTesting:~/Orion-ERP# git push
+Everything up-to-date
+root@OrionTesting:~/Orion-ERP# ls
+README.md  desarrollos-orion  oddons
+root@OrionTesting:~/Orion-ERP# ls
+README.md  desarrollos-orion  oddons
+root@OrionTesting:~/Orion-ERP# git add
+Nothing specified, nothing added.
+Maybe you wanted to say 'git add .'?
+root@OrionTesting:~/Orion-ERP# git add .
+root@OrionTesting:~/Orion-ERP# git commit -m "fichero"
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+root@OrionTesting:~/Orion-ERP# ls
+README.md  desarrollos-orion  oddons
+root@OrionTesting:~/Orion-ERP# cd oddons
+root@OrionTesting:~/Orion-ERP/oddons# nano oddons.config
+root@OrionTesting:~/Orion-ERP/oddons# ls
+oddons.config
+root@OrionTesting:~/Orion-ERP/oddons# cd ..
+root@OrionTesting:~/Orion-ERP# git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        oddons/
+
+nothing added to commit but untracked files present (use "git add" to track)
+root@OrionTesting:~/Orion-ERP# git add oddons
+root@OrionTesting:~/Orion-ERP# git commit -m "nuevo archivo"
+[main a002f20] nuevo archivo
+ 1 file changed, 1 insertion(+)
+ create mode 100644 oddons/oddons.config
+root@OrionTesting:~/Orion-ERP# git push
+Warning: Permanently added the ECDSA host key for IP address '140.82.113.4' to the list of known hosts.
+Counting objects: 4, done.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 388 bytes | 388.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0)
+To github.com:NicoCoronado/Orion-ERP.git
+   7a1bd57..a002f20  main -> main
+root@OrionTesting:~/Orion-ERP# cd ..
+root@OrionTesting:~# git checkout rama
+fatal: not a git repository (or any of the parent directories): .git
+root@OrionTesting:~# git checkout rama
+fatal: not a git repository (or any of the parent directories): .git
+root@OrionTesting:~# git checkout rama
+fatal: not a git repository (or any of the parent directories): .git
+root@OrionTesting:~# git show-branch
+fatal: not a git repository (or any of the parent directories): .git
+root@OrionTesting:~# cd ..
+root@OrionTesting:/# ls
+bin   dev  home        initrd.img.old  lib64       media  opt    proc  run   snap  sys  usr  vmlinuz
+boot  etc  initrd.img  lib             lost+found  mnt    orion  root  sbin  srv   tmp  var  vmlinuz.old
+root@OrionTesting:/# ^C
+root@OrionTesting:/# cd Orion-ERP
+-bash: cd: Orion-ERP: No such file or directory
+root@OrionTesting:/# cd Orion-ERP
+-bash: cd: Orion-ERP: No such file or directory
+root@OrionTesting:/# git clone git@github.com:NicoCoronado/Orion-ERP.git
+Cloning into 'Orion-ERP'...
+remote: Enumerating objects: 18, done.
+remote: Counting objects: 100% (18/18), done.
+remote: Compressing objects: 100% (9/9), done.
+remote: Total 18 (delta 1), reused 14 (delta 0), pack-reused 0
+Receiving objects: 100% (18/18), done.
+Resolving deltas: 100% (1/1), done.
+root@OrionTesting:/# git show-branch
+fatal: not a git repository (or any of the parent directories): .git
+root@OrionTesting:/# ls
+Orion-ERP  boot  etc   initrd.img      lib    lost+found  mnt  orion  root  sbin  srv  tmp  var      vmlinuz.old
+bin        dev   home  initrd.img.old  lib64  media       opt  proc   run   snap  sys  usr  vmlinuz
+root@OrionTesting:/# cd Orion-ERP
+root@OrionTesting:/Orion-ERP# git show-branch
+[main] nuevo archivo
+root@OrionTesting:/Orion-ERP# got checkout rama
+
+Command 'got' not found, but there are 17 similar ones.
+
+root@OrionTesting:/Orion-ERP# git checkout rama
+Branch 'rama' set up to track remote branch 'rama' from 'origin'.
+Switched to a new branch 'rama'
+root@OrionTesting:/Orion-ERP# git show-branch
+! [main] nuevo archivo
+ * [rama] nuevo archivo
+--
++* [main] nuevo archivo
+root@OrionTesting:/Orion-ERP# nano archivo.config
+root@OrionTesting:/Orion-ERP# git add archivo.config
+root@OrionTesting:/Orion-ERP# git status
+On branch rama
+Your branch is up to date with 'origin/rama'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   archivo.config
+
+root@OrionTesting:/Orion-ERP# git commit -m "prueba rama"
+[rama e002ba9] prueba rama
+ 1 file changed, 1 insertion(+)
+ create mode 100644 archivo.config
+root@OrionTesting:/Orion-ERP# git push
+Counting objects: 3, done.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 369 bytes | 369.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To github.com:NicoCoronado/Orion-ERP.git
+   a002f20..e002ba9  rama -> rama
+root@OrionTesting:/Orion-ERP#
+root@OrionTesting:/Orion-ERP#  * Documentation:  https://help.ubuntu.com
+
+  System information as of Tue Mar  1 19:41:09 UTC 2022
+
+  System load:  0.0                Processes:           103
+  Usage of /:   11.9% of 24.06GB   Users logged in:     1
+  Memory usage: 32%                IP address for eth0: 143.198.178.33
+  Swap usage:   0%                 IP address for eth1: 10.116.0.3
+
+12 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+New release '20.04.4 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+*** System restart required ***
+Last login: Tue Mar  1 19:34:30 2022 from 186.10.223.230
+root@OrionTesting:~# service --status-all
+ [ - ]  acpid
+ [ + ]  apparmor
+ [ + ]  apport
+ [ + ]  atd
+ [ - ]  console-setup.sh
+ [ + ]  cron
+ [ - ]  cryptdisks
+ [ - ]  cryptdisks-early
+ [ + ]  dbus
+ [ + ]  ebtables
+ [ + ]  grub-common
+ [ - ]  hwclock.sh
+ [ - ]  irqbalance
+ [ + ]  iscsid
+ [ - ]  keyboard-setup.sh
+ [ + ]  kmod
+ [ - ]  lvm2
+ [ + ]  lvm2-lvmetad
+ [ + ]  lvm2-lvmpolld
+ [ + ]  lxcfs
+ [ - ]  lxd
+ [ - ]  mdadm
+ [ - ]  mdadm-waitidle
+ [ + ]  odoo
+ [ - ]  open-iscsi
+ [ - ]  open-vm-tools
+ [ - ]  plymouth
+ [ - ]  plymouth-log
+ [ + ]  postgresql
+ [ + ]  procps
+ [ - ]  rsync
+ [ + ]  rsyslog
+ [ - ]  screen-cleanup
+ [ + ]  ssh
+ [ - ]  sysstat
+ [ + ]  udev
+ [ + ]  ufw
+ [ + ]  unattended-upgrades
+ [ + ]  uuidd
+ [ - ]  x11-common
+root@OrionTesting:~# service odoo status
+● odoo.service - Odoo Open Source ERP and CRM
+   Loaded: loaded (/lib/systemd/system/odoo.service; enabled; vendor preset: enabled)
+   Active: active (running) since Tue 2022-03-01 13:46:01 UTC; 5h 58min ago
+ Main PID: 21791 (odoo)
+    Tasks: 5 (limit: 1151)
+   CGroup: /system.slice/odoo.service
+           └─21791 /usr/bin/python3 /usr/bin/odoo --config /etc/odoo/odoo.conf --logfile /var/log/odoo/odoo-server.log
+
+Mar 01 13:46:01 OrionTesting systemd[1]: Stopped Odoo Open Source ERP and CRM.
+Mar 01 13:46:01 OrionTesting systemd[1]: Started Odoo Open Source ERP and CRM.
+root@OrionTesting:~# cd odoo
+-bash: cd: odoo: No such file or directory
+root@OrionTesting:~# git clone git@github.com:NicoCoronado/Orion-ERP.git
+Cloning into 'Orion-ERP'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+root@OrionTesting:~# ls
+Orion-ERP
+root@OrionTesting:~# cd Orion-ERP
+root@OrionTesting:~/Orion-ERP# ls ..
+Orion-ERP
+root@OrionTesting:~/Orion-ERP# ls ..
+Orion-ERP
+root@OrionTesting:~/Orion-ERP# cd ..
+root@OrionTesting:~# git clone git@github.com:NicoCoronado/Orion-ERP.git
+fatal: destination path 'Orion-ERP' already exists and is not an empty directory.
+root@OrionTesting:~# cd Orion-ERP
+root@OrionTesting:~/Orion-ERP# ls
+README.md
+root@OrionTesting:~/Orion-ERP# git pull
+remote: Enumerating objects: 12, done.
+remote: Counting objects: 100% (12/12), done.
+remote: Compressing objects: 100% (6/6), done.
+remote: Total 11 (delta 0), reused 11 (delta 0), pack-reused 0
+Unpacking objects: 100% (11/11), done.
+From github.com:NicoCoronado/Orion-ERP
+   f759ea0..7a1bd57  main       -> origin/main
+Updating f759ea0..7a1bd57
+Fast-forward
+ desarrollos-orion/cuidado_plantas/__init__.py          |  1 +
+ desarrollos-orion/cuidado_plantas/__manifest__.py      | 30 ++++++++++++++++++++++++++++++
+ desarrollos-orion/cuidado_plantas/models/__init__.py   |  1 +
+ desarrollos-orion/cuidado_plantas/models/model.py      |  1 +
+ desarrollos-orion/cuidado_plantas/models/model.py.save |  5 +++++
+ desarrollos-orion/cuidado_plantas/views/vista.xml      |  1 +
+ 6 files changed, 39 insertions(+)
+ create mode 100644 desarrollos-orion/cuidado_plantas/__init__.py
+ create mode 100644 desarrollos-orion/cuidado_plantas/__manifest__.py
+ create mode 100644 desarrollos-orion/cuidado_plantas/models/__init__.py
+ create mode 100644 desarrollos-orion/cuidado_plantas/models/model.py
+ create mode 100644 desarrollos-orion/cuidado_plantas/models/model.py.save
+ create mode 100644 desarrollos-orion/cuidado_plantas/views/vista.xmlREADME.md: command not found
+root@OrionTesting:/Orion-ERP#  * Management:     https://landscape.canonical.com
+README.md: command not found
+root@OrionTesting:/Orion-ERP#  * Support:        https://ubuntu.com/advantage
+README.md: command not found
+root@OrionTesting:/Orion-ERP#
+root@OrionTesting:/Orion-ERP#   System information as of Tue Mar  1 19:41:09 UTC 2022
+System: command not found
+root@OrionTesting:/Orion-ERP#
+root@OrionTesting:/Orion-ERP#   System load:  0.0                Processes:           103
+System: command not found
+root@OrionTesting:/Orion-ERP#   Usage of /:   11.9% of 24.06GB   Users logged in:     1
+
+Command 'Usage' not found, did you mean:
+
+  command 'sage' from deb sagemath-common
+  command 'osage' from deb graphviz
+
+Try: apt install <deb name>
+
+root@OrionTesting:/Orion-ERP#   Memory usage: 32%                IP address for eth0: 143.198.178.33
+Memory: command not found
+root@OrionTesting:/Orion-ERP#   Swap usage:   0%                 IP address for eth1: 10.116.0.3
+Swap: command not found
+root@OrionTesting:/Orion-ERP#
+root@OrionTesting:/Orion-ERP# 12 updates can be applied immediately.
+12: command not found
+root@OrionTesting:/Orion-ERP# To see these additional updates run: apt list --upgradable
+To: command not found
+root@OrionTesting:/Orion-ERP#
+root@OrionTesting:/Orion-ERP# New release '20.04.4 LTS' available.
+
+Command 'New' not found, did you mean:
+
+  command 'new' from deb mmh
+  command 'new' from deb nmh
+
+Try: apt install <deb name>
+
+root@OrionTesting:/Orion-ERP# Run 'do-release-upgrade' to upgrade to it.
+
+Command 'Run' not found, did you mean:
+
+  command 'zun' from deb python-zunclient
+  command 'zun' from deb python3-zunclient
+
+Try: apt install <deb name>
+
+root@OrionTesting:/Orion-ERP#
+root@OrionTesting:/Orion-ERP#
+root@OrionTesting:/Orion-ERP# *** System restart required ***
+README.md: command not found
+root@OrionTesting:/Orion-ERP# Last login: Tue Mar  1 19:34:30 2022 from 186.10.223.230
+
+Command 'Last' not found, did you mean:
+
+  command 'nast' from deb nast
+  command 'ast' from deb jruby
+  command 'last' from deb util-linux
+
+Try: apt install <deb name>
+
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~# service --status-all
+root@OrionTesting:~#: command not found
+root@OrionTesting:/Orion-ERP#  [ - ]  acpid
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ + ]  apparmor
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ + ]  apport
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ + ]  atd
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ - ]  console-setup.sh
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ + ]  cron
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ - ]  cryptdisks
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ - ]  cryptdisks-early
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ + ]  dbus
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ + ]  ebtables
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ + ]  grub-common
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ - ]  hwclock.sh
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ - ]  irqbalance
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ + ]  iscsid
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ - ]  keyboard-setup.sh
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ + ]  kmod
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ - ]  lvm2
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ + ]  lvm2-lvmetad
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ + ]  lvm2-lvmpolld
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ + ]  lxcfs
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ - ]  lxd
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ - ]  mdadm
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ - ]  mdadm-waitidle
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ + ]  odoo
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ - ]  open-iscsi
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ - ]  open-vm-tools
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ - ]  plymouth
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ - ]  plymouth-log
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ + ]  postgresql
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ + ]  procps
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ - ]  rsync
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ + ]  rsyslog
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ - ]  screen-cleanup
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ + ]  ssh
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ - ]  sysstat
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ + ]  udev
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ + ]  ufw
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ + ]  unattended-upgrades
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ + ]  uuidd
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP#  [ - ]  x11-common
+-bash: [: missing `]'
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~# service odoo status
+root@OrionTesting:~#: command not found
+root@OrionTesting:/Orion-ERP# ● odoo.service - Odoo Open Source ERP and CRM
+●: command not found
+root@OrionTesting:/Orion-ERP#    Loaded: loaded (/lib/systemd/system/odoo.service; enabled; vendor preset: enabled)
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP#    Active: active (running) since Tue 2022-03-01 13:46:01 UTC; 5h 58min ago
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP#  Main PID: 21791 (odoo)
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP#     Tasks: 5 (limit: 1151)
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP#    CGroup: /system.slice/odoo.service
+CGroup:: command not found
+root@OrionTesting:/Orion-ERP#            └─21791 /usr/bin/python3 /usr/bin/odoo --config /etc/odoo/odoo.conf --logfile /var/log/odoo/odoo-server.log
+└─21791: command not found
+root@OrionTesting:/Orion-ERP#
+root@OrionTesting:/Orion-ERP# Mar 01 13:46:01 OrionTesting systemd[1]: Stopped Odoo Open Source ERP and CRM.
+
+Command 'Mar' not found, did you mean:
+
+  command 'par' from deb par
+  command 'ar' from deb binutils
+  command 'bar' from deb bar
+  command 'rar' from deb rar
+  command 'car' from deb ucommon-utils
+  command 'sar' from deb sysstat
+  command 'ear' from deb ecere-dev
+  command 'kar' from deb sra-toolkit
+  command 'tar' from deb tar
+  command 'dar' from deb dar
+  command 'jar' from deb default-jdk
+  command 'jar' from deb openjdk-11-jdk-headless
+  command 'jar' from deb fastjar
+  command 'jar' from deb openjdk-8-jdk-headless
+
+Try: apt install <deb name>
+
+root@OrionTesting:/Orion-ERP# Mar 01 13:46:01 OrionTesting systemd[1]: Started Odoo Open Source ERP and CRM.
+
+Command 'Mar' not found, did you mean:
+
+  command 'par' from deb par
+  command 'ar' from deb binutils
+  command 'sar' from deb sysstat
+  command 'tar' from deb tar
+  command 'jar' from deb default-jdk
+  command 'jar' from deb openjdk-11-jdk-headless
+  command 'jar' from deb fastjar
+  command 'jar' from deb openjdk-8-jdk-headless
+  command 'car' from deb ucommon-utils
+  command 'rar' from deb rar
+  command 'bar' from deb bar
+  command 'ear' from deb ecere-dev
+  command 'kar' from deb sra-toolkit
+  command 'dar' from deb dar
+
+Try: apt install <deb name>
+
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~# cd odoo
+root@OrionTesting:~#: command not found
+root@OrionTesting:/Orion-ERP# -bash: cd: odoo: No such file or directory
+-bash:: command not found
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~# git clone git@github.com:NicoCoronado/Orion-ERP.git
+root@OrionTesting:~#: command not found
+root@OrionTesting:/Orion-ERP# Cloning into 'Orion-ERP'...
+Cloning: command not found
+root@OrionTesting:/Orion-ERP# remote: Enumerating objects: 3, done.
+remote:: command not found
+root@OrionTesting:/Orion-ERP# remote: Counting objects: 100% (3/3), done.
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP# remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP# Receiving objects: 100% (3/3), done.
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~# ls
+root@OrionTesting:~#: command not found
+root@OrionTesting:/Orion-ERP# Orion-ERP
+Orion-ERP: command not found
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~# cd Orion-ERP
+root@OrionTesting:~#: command not found
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~/Orion-ERP# ls ..
+-bash: root@OrionTesting:~/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# Orion-ERP
+Orion-ERP: command not found
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~/Orion-ERP# ls ..
+-bash: root@OrionTesting:~/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# Orion-ERP
+Orion-ERP: command not found
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~/Orion-ERP# cd ..
+-bash: root@OrionTesting:~/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~# git clone git@github.com:NicoCoronado/Orion-ERP.git
+root@OrionTesting:~#: command not found
+root@OrionTesting:/Orion-ERP# fatal: destination path 'Orion-ERP' already exists and is not an empty directory.
+fatal:: command not found
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~# cd Orion-ERP
+root@OrionTesting:~#: command not found
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~/Orion-ERP# ls
+-bash: root@OrionTesting:~/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# README.md
+README.md: command not found
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~/Orion-ERP# git pull
+-bash: root@OrionTesting:~/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# remote: Enumerating objects: 12, done.
+remote:: command not found
+root@OrionTesting:/Orion-ERP# remote: Counting objects: 100% (12/12), done.
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP# remote: Compressing objects: 100% (6/6), done.
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP# remote: Total 11 (delta 0), reused 11 (delta 0), pack-reused 0
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP# Unpacking objects: 100% (11/11), done.
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP# From github.com:NicoCoronado/Orion-ERP
+
+Command 'From' not found, did you mean:
+
+  command 'from' from deb bsdmainutils
+  command 'from' from deb mailutils
+
+Try: apt install <deb name>
+
+root@OrionTesting:/Orion-ERP#    f759ea0..7a1bd57  main       -> origin/main
+-bash: origin/main: No such file or directory
+root@OrionTesting:/Orion-ERP# Updating f759ea0..7a1bd57
+Updating: command not found
+root@OrionTesting:/Orion-ERP# Fast-forward
+Fast-forward: command not found
+root@OrionTesting:/Orion-ERP#  desarrollos-orion/cuidado_plantas/__init__.py          |  1 +
+-bash: desarrollos-orion/cuidado_plantas/__init__.py: Permission denied
+1: command not found
+root@OrionTesting:/Orion-ERP#  desarrollos-orion/cuidado_plantas/__manifest__.py      | 30 ++++++++++++++++++++++++++++++
+-bash: desarrollos-orion/cuidado_plantas/__manifest__.py: Permission denied
+30: command not found
+root@OrionTesting:/Orion-ERP#  desarrollos-orion/cuidado_plantas/models/__init__.py   |  1 +
+-bash: desarrollos-orion/cuidado_plantas/models/__init__.py: Permission denied
+1: command not found
+root@OrionTesting:/Orion-ERP#  desarrollos-orion/cuidado_plantas/models/model.py      |  1 +
+-bash: desarrollos-orion/cuidado_plantas/models/model.py: Permission denied
+1: command not found
+root@OrionTesting:/Orion-ERP#  desarrollos-orion/cuidado_plantas/models/model.py.save |  5 +++++
+-bash: desarrollos-orion/cuidado_plantas/models/model.py.save: Permission denied
+5: command not found
+root@OrionTesting:/Orion-ERP#  desarrollos-orion/cuidado_plantas/views/vista.xml      |  1 +
+-bash: desarrollos-orion/cuidado_plantas/views/vista.xml: Permission denied
+1: command not found
+root@OrionTesting:/Orion-ERP#  6 files changed, 39 insertions(+)
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP#  create mode 100644 desarrollos-orion/cuidado_plantas/__init__.py
+
+Command 'create' not found, did you mean:
+
+  command 'pcreate' from deb pbuilder-scripts
+  command 'pcreate' from deb python-pyramid
+
+Try: apt install <deb name>
+
+root@OrionTesting:/Orion-ERP#  create mode 100644 desarrollos-orion/cuidado_plantas/__manifest__.py
+
+Command 'create' not found, did you mean:
+
+  command 'pcreate' from deb pbuilder-scripts
+  command 'pcreate' from deb python-pyramid
+
+Try: apt install <deb name>
+
+root@OrionTesting:/Orion-ERP#  create mode 100644 desarrollos-orion/cuidado_plantas/models/__init__.py
+
+Command 'create' not found, did you mean:
+
+  command 'pcreate' from deb pbuilder-scripts
+  command 'pcreate' from deb python-pyramid
+
+Try: apt install <deb name>
+
+root@OrionTesting:/Orion-ERP#  create mode 100644 desarrollos-orion/cuidado_plantas/models/model.py
+
+Command 'create' not found, did you mean:
+
+  command 'pcreate' from deb pbuilder-scripts
+  command 'pcreate' from deb python-pyramid
+
+Try: apt install <deb name>
+
+root@OrionTesting:/Orion-ERP#  create mode 100644 desarrollos-orion/cuidado_plantas/models/model.py.save
+
+Command 'create' not found, did you mean:
+
+  command 'pcreate' from deb pbuilder-scripts
+  command 'pcreate' from deb python-pyramid
+
+Try: apt install <deb name>
+
+root@OrionTesting:/Orion-ERP#  create mode 100644 desarrollos-orion/cuidado_plantas/views/vista.xml
+
+Command 'create' not found, did you mean:
+
+  command 'pcreate' from deb pbuilder-scripts
+  command 'pcreate' from deb python-pyramid
+
+Try: apt install <deb name>
+
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~/Orion-ERP# mkdir oddons
+-bash: root@OrionTesting:~/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~/Orion-ERP# ls
+-bash: root@OrionTesting:~/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# README.md  desarrollos-orion  oddons
+README.md: command not found
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~/Orion-ERP# git add oddons
+-bash: root@OrionTesting:~/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~/Orion-ERP# ls
+-bash: root@OrionTesting:~/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# README.md  desarrollos-orion  oddons
+README.md: command not found
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~/Orion-ERP# git commit "Fichero nuevo"
+-bash: root@OrionTesting:~/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# error: pathspec 'Fichero nuevo' did not match any file(s) known to git.
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~/Orion-ERP# git commit
+-bash: root@OrionTesting:~/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# On branch main
+On: command not found
+root@OrionTesting:/Orion-ERP# Your branch is up to date with 'origin/main'.
+Your: command not found
+root@OrionTesting:/Orion-ERP#
+root@OrionTesting:/Orion-ERP# nothing to commit, working tree clean
+nothing: command not found
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~/Orion-ERP# git push
+-bash: root@OrionTesting:~/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# Everything up-to-date
+Everything: command not found
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~/Orion-ERP# ls
+-bash: root@OrionTesting:~/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# README.md  desarrollos-orion  oddons
+README.md: command not found
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~/Orion-ERP# ls
+-bash: root@OrionTesting:~/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# README.md  desarrollos-orion  oddons
+README.md: command not found
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~/Orion-ERP# git add
+-bash: root@OrionTesting:~/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# Nothing specified, nothing added.
+Nothing: command not found
+root@OrionTesting:/Orion-ERP# Maybe you wanted to say 'git add .'?
+
+Command 'Maybe' not found, did you mean:
+
+  command 'maybe' from deb maybe
+
+Try: apt install <deb name>
+
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~/Orion-ERP# git add .
+-bash: root@OrionTesting:~/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~/Orion-ERP# git commit -m "fichero"
+-bash: root@OrionTesting:~/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# On branch main
+On: command not found
+root@OrionTesting:/Orion-ERP# Your branch is up to date with 'origin/main'.
+Your: command not found
+root@OrionTesting:/Orion-ERP#
+root@OrionTesting:/Orion-ERP# nothing to commit, working tree clean
+nothing: command not found
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~/Orion-ERP# ls
+-bash: root@OrionTesting:~/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# README.md  desarrollos-orion  oddons
+README.md: command not found
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~/Orion-ERP# cd oddons
+-bash: root@OrionTesting:~/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~/Orion-ERP/oddons# nano oddons.config
+-bash: root@OrionTesting:~/Orion-ERP/oddons#: No such file or directory
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~/Orion-ERP/oddons# ls
+-bash: root@OrionTesting:~/Orion-ERP/oddons#: No such file or directory
+root@OrionTesting:/Orion-ERP# oddons.config
+oddons.config: command not found
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~/Orion-ERP/oddons# cd ..
+-bash: root@OrionTesting:~/Orion-ERP/oddons#: No such file or directory
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~/Orion-ERP# git status
+-bash: root@OrionTesting:~/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# On branch main
+On: command not found
+root@OrionTesting:/Orion-ERP# Your branch is up to date with 'origin/main'.
+Your: command not found
+root@OrionTesting:/Orion-ERP#
+root@OrionTesting:/Orion-ERP# Untracked files:
+Untracked: command not found
+root@OrionTesting:/Orion-ERP#   (use "git add <file>..." to include in what will be committed)
+
+Command 'use' not found, did you mean:
+
+  command 'ase' from deb ase
+  command 'nse' from deb ns2
+  command 'muse' from deb muse
+  command 'fuse' from deb fuse-emulator-gtk
+  command 'fuse' from deb fuse-emulator-sdl
+
+Try: apt install <deb name>
+
+root@OrionTesting:/Orion-ERP#
+root@OrionTesting:/Orion-ERP#         oddons/
+-bash: oddons/: Is a directory
+root@OrionTesting:/Orion-ERP#
+root@OrionTesting:/Orion-ERP# nothing added to commit but untracked files present (use "git add" to track)
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~/Orion-ERP# git add oddons
+-bash: root@OrionTesting:~/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~/Orion-ERP# git commit -m "nuevo archivo"
+-bash: root@OrionTesting:~/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# [main a002f20] nuevo archivo
+[main: command not found
+root@OrionTesting:/Orion-ERP#  1 file changed, 1 insertion(+)
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP#  create mode 100644 oddons/oddons.config
+
+Command 'create' not found, did you mean:
+
+  command 'pcreate' from deb pbuilder-scripts
+  command 'pcreate' from deb python-pyramid
+
+Try: apt install <deb name>
+
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~/Orion-ERP# git push
+-bash: root@OrionTesting:~/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# Warning: Permanently added the ECDSA host key for IP address '140.82.113.4' to the list of known hosts.
+Warning:: command not found
+root@OrionTesting:/Orion-ERP# Counting objects: 4, done.
+Counting: command not found
+root@OrionTesting:/Orion-ERP# Compressing objects: 100% (2/2), done.
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP# Writing objects: 100% (4/4), 388 bytes | 388.00 KiB/s, done.
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP# Total 4 (delta 0), reused 0 (delta 0)
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP# To github.com:NicoCoronado/Orion-ERP.git
+To: command not found
+root@OrionTesting:/Orion-ERP#    7a1bd57..a002f20  main -> main
+7a1bd57..a002f20: command not found
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~/Orion-ERP# cd ..
+-bash: root@OrionTesting:~/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~# git checkout rama
+root@OrionTesting:~#: command not found
+root@OrionTesting:/Orion-ERP# fatal: not a git repository (or any of the parent directories): .git
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~# git checkout rama
+root@OrionTesting:~#: command not found
+root@OrionTesting:/Orion-ERP# fatal: not a git repository (or any of the parent directories): .git
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~# git checkout rama
+root@OrionTesting:~#: command not found
+root@OrionTesting:/Orion-ERP# fatal: not a git repository (or any of the parent directories): .git
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~# git show-branch
+root@OrionTesting:~#: command not found
+root@OrionTesting:/Orion-ERP# fatal: not a git repository (or any of the parent directories): .git
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP# root@OrionTesting:~# cd ..
+root@OrionTesting:~#: command not found
+root@OrionTesting:/Orion-ERP# root@OrionTesting:/# ls
+-bash: root@OrionTesting:/#: No such file or directory
+root@OrionTesting:/Orion-ERP# bin   dev  home        initrd.img.old  lib64       media  opt    proc  run   snap  sys  usr  vmlinuz
+
+Command 'bin' not found, did you mean:
+
+  command 'bino' from deb bino
+  command 'bing' from deb bing
+  command 'dbin' from deb dbmix
+  command 'tin' from deb tin
+  command 'bip' from deb bip
+  command 'win' from deb wily
+  command 'ben' from deb ben
+  command 'din' from deb din
+
+Try: apt install <deb name>
+
+root@OrionTesting:/Orion-ERP# boot  etc  initrd.img  lib             lost+found  mnt    orion  root  sbin  srv   tmp  var  vmlinuz.old
+
+Command 'boot' not found, did you mean:
+
+  command 'brot' from deb fortunes-de
+  command 'boog' from deb alliance
+  command 'boom' from deb alliance
+  command 'boom' from deb doomsday
+  command 'boom' from deb prboom-plus
+  command 'hboot' from deb lam-runtime
+  command 'booth' from deb booth
+
+Try: apt install <deb name>
+
+root@OrionTesting:/Orion-ERP# root@OrionTesting:/# ^C
+-bash: root@OrionTesting:/#: No such file or directory
+root@OrionTesting:/Orion-ERP# root@OrionTesting:/# cd Orion-ERP
+-bash: root@OrionTesting:/#: No such file or directory
+root@OrionTesting:/Orion-ERP# -bash: cd: Orion-ERP: No such file or directory
+-bash:: command not found
+root@OrionTesting:/Orion-ERP# root@OrionTesting:/# cd Orion-ERP
+-bash: root@OrionTesting:/#: No such file or directory
+root@OrionTesting:/Orion-ERP# -bash: cd: Orion-ERP: No such file or directory
+-bash:: command not found
+root@OrionTesting:/Orion-ERP# root@OrionTesting:/# git clone git@github.com:NicoCoronado/Orion-ERP.git
+-bash: root@OrionTesting:/#: No such file or directory
+root@OrionTesting:/Orion-ERP# Cloning into 'Orion-ERP'...
+Cloning: command not found
+root@OrionTesting:/Orion-ERP# remote: Enumerating objects: 18, done.
+remote:: command not found
+root@OrionTesting:/Orion-ERP# remote: Counting objects: 100% (18/18), done.
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP# remote: Compressing objects: 100% (9/9), done.
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP# remote: Total 18 (delta 1), reused 14 (delta 0), pack-reused 0
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP# Receiving objects: 100% (18/18), done.
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP# Resolving deltas: 100% (1/1), done.
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP# root@OrionTesting:/# git show-branch
+-bash: root@OrionTesting:/#: No such file or directory
+root@OrionTesting:/Orion-ERP# fatal: not a git repository (or any of the parent directories): .git
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP# root@OrionTesting:/# ls
+-bash: root@OrionTesting:/#: No such file or directory
+root@OrionTesting:/Orion-ERP# Orion-ERP  boot  etc   initrd.img      lib    lost+found  mnt  orion  root  sbin  srv  tmp  var      vmlinuz.old
+Orion-ERP: command not found
+root@OrionTesting:/Orion-ERP# bin        dev   home  initrd.img.old  lib64  media       opt  proc   run   snap  sys  usr  vmlinuz
+
+Command 'bin' not found, did you mean:
+
+  command 'bing' from deb bing
+  command 'tin' from deb tin
+  command 'dbin' from deb dbmix
+  command 'bino' from deb bino
+  command 'bip' from deb bip
+  command 'ben' from deb ben
+  command 'din' from deb din
+  command 'win' from deb wily
+
+Try: apt install <deb name>
+
+root@OrionTesting:/Orion-ERP# root@OrionTesting:/# cd Orion-ERP
+-bash: root@OrionTesting:/#: No such file or directory
+root@OrionTesting:/Orion-ERP# root@OrionTesting:/Orion-ERP# git show-branch
+-bash: root@OrionTesting:/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# [main] nuevo archivo
+[main]: command not found
+root@OrionTesting:/Orion-ERP# root@OrionTesting:/Orion-ERP# got checkout rama
+-bash: root@OrionTesting:/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP#
+root@OrionTesting:/Orion-ERP# Command 'got' not found, but there are 17 similar ones.
+Command: command not found
+root@OrionTesting:/Orion-ERP#
+root@OrionTesting:/Orion-ERP# root@OrionTesting:/Orion-ERP# git checkout rama
+-bash: root@OrionTesting:/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# Branch 'rama' set up to track remote branch 'rama' from 'origin'.
+
+Command 'Branch' not found, did you mean:
+
+  command 'branch' from deb rheolef
+
+Try: apt install <deb name>
+
+root@OrionTesting:/Orion-ERP# Switched to a new branch 'rama'
+Switched: command not found
+root@OrionTesting:/Orion-ERP# root@OrionTesting:/Orion-ERP# git show-branch
+-bash: root@OrionTesting:/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# ! [main] nuevo archivo
+[main]: command not found
+root@OrionTesting:/Orion-ERP#  * [rama] nuevo archivo
+README.md: command not found
+root@OrionTesting:/Orion-ERP# --
+--: command not found
+root@OrionTesting:/Orion-ERP# +* [main] nuevo archivo
++*: command not found
+root@OrionTesting:/Orion-ERP# root@OrionTesting:/Orion-ERP# nano archivo.config
+-bash: root@OrionTesting:/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# root@OrionTesting:/Orion-ERP# git add archivo.config
+-bash: root@OrionTesting:/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# root@OrionTesting:/Orion-ERP# git status
+-bash: root@OrionTesting:/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# On branch rama
+On: command not found
+root@OrionTesting:/Orion-ERP# Your branch is up to date with 'origin/rama'.
+Your: command not found
+root@OrionTesting:/Orion-ERP#
+root@OrionTesting:/Orion-ERP# Changes to be committed:
+Changes: command not found
+root@OrionTesting:/Orion-ERP#   (use "git reset HEAD <file>..." to unstage)
+
+Command 'use' not found, did you mean:
+
+  command 'nse' from deb ns2
+  command 'fuse' from deb fuse-emulator-gtk
+  command 'fuse' from deb fuse-emulator-sdl
+  command 'muse' from deb muse
+  command 'ase' from deb ase
+
+Try: apt install <deb name>
+
+root@OrionTesting:/Orion-ERP#
+root@OrionTesting:/Orion-ERP#         new file:   archivo.config
+
+Command 'new' not found, but can be installed with:
+
+apt install mmh
+apt install nmh
+
+root@OrionTesting:/Orion-ERP#
+root@OrionTesting:/Orion-ERP# root@OrionTesting:/Orion-ERP# git commit -m "prueba rama"
+-bash: root@OrionTesting:/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# [rama e002ba9] prueba rama
+[rama: command not found
+root@OrionTesting:/Orion-ERP#  1 file changed, 1 insertion(+)
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP#  create mode 100644 archivo.config
+
+Command 'create' not found, did you mean:
+
+  command 'pcreate' from deb pbuilder-scripts
+  command 'pcreate' from deb python-pyramid
+
+Try: apt install <deb name>
+
+root@OrionTesting:/Orion-ERP# root@OrionTesting:/Orion-ERP# git push
+-bash: root@OrionTesting:/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP# Counting objects: 3, done.
+Counting: command not found
+root@OrionTesting:/Orion-ERP# Compressing objects: 100% (2/2), done.
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP# Writing objects: 100% (3/3), 369 bytes | 369.00 KiB/s, done.
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP# Total 3 (delta 0), reused 0 (delta 0)
+-bash: syntax error near unexpected token `('
+root@OrionTesting:/Orion-ERP# To github.com:NicoCoronado/Orion-ERP.git
+To: command not found
+root@OrionTesting:/Orion-ERP#    a002f20..e002ba9  rama -> rama
+a002f20..e002ba9: command not found
+root@OrionTesting:/Orion-ERP# root@OrionTesting:/Orion-ERP#
+-bash: root@OrionTesting:/Orion-ERP#: No such file or directory
+root@OrionTesting:/Orion-ERP#
